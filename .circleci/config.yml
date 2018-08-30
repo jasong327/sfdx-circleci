@@ -64,7 +64,7 @@ jobs:
           name: Deploy to QA Org
           command: |
             sfdx force:source:convert -r force-app -d testDeploy
-            sfdx force:mdapi:deploy -d testDeploy/ -u test-map3238wlfkh@example.com -w 2
+            sfdx force:mdapi:deploy -d testDeploy/ -u qa -w 2
 
 ### Uncomment the following if performing deployments
 #deployment:
