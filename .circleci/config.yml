@@ -60,11 +60,12 @@ jobs:
           name: Delete Useless Scratch Org
           command: |
             sfdx force:org:delete -u circle_build_$CIRCLE_BUILD_NUM -p
-deployment:
- override:
-   - sfdx force:source:convert -r force-app -d testDeploy
-   - . cleanupDeploy.sh
-   - sfdx force:mdapi:deploy -d testDeploy/ -u test-map3238wlfkh@example.com -w 2
+      - run:
+          name: Deploy to QA Org
+          command: |
+            sfdx force:source:convert -r force-app -d testDeploy
+            . cleanupDeploy.sh
+            sfdx force:mdapi:deploy -d testDeploy/ -u test-map3238wlfkh@example.com -w 2
 
 ### Uncomment the following if performing deployments
 #deployment:
