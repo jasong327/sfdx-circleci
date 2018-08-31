@@ -64,7 +64,7 @@ jobs:
           name: Deploy to QA Org
           command: |
             sfdx force:source:convert -r force-app -d testDeploy
-#           sfdx force:auth:jwt:grant --clientid $QA_CONSUMER_KEY --jwtkeyfile assets/server.key --username test-map3238wlfkh@example.com -a qa
+          #sfdx force:auth:jwt:grant --clientid $QA_CONSUMER_KEY --jwtkeyfile assets/server.key --username test-map3238wlfkh@example.com -a qa
             sfdx force:mdapi:deploy -d testDeploy/ -w 2
 
 ### Uncomment the following if performing deployments
