@@ -41,7 +41,6 @@ jobs:
           #- echo $DEPLOY_SERVER_KEY_HEX | xxd -r -ps >> keys/deploy.key
           #- openssl rsa -in keys/deploy.key -check -noout
           #- sfdx force:auth:jwt:grant --clientid $DEPLOY_CONSUMER_KEY --jwtkeyfile keys/deploy.key --username $DEPLOY_SFDC_USER -a deploy
-
             echo 'make deploy key'
             echo $DEPLOY_SERVER_KEY_HEX | xxd -r -ps >> keys/deploy.key
             openssl rsa -in keys/deploy.key -check -noout
@@ -65,8 +64,6 @@ jobs:
           name: Delete Useless Scratch Org
           command: |
             sfdx force:org:delete -u circle_build_$CIRCLE_BUILD_NUM -p
-
-
 ### Uncomment the following if performing deployments
 deployment:
  override:
