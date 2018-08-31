@@ -42,10 +42,10 @@ jobs:
           #- openssl rsa -in keys/deploy.key -check -noout
           #- sfdx force:auth:jwt:grant --clientid $DEPLOY_CONSUMER_KEY --jwtkeyfile keys/deploy.key --username $DEPLOY_SFDC_USER -a deploy
 
-          - echo 'make deploy key'
-          - echo $DEPLOY_SERVER_KEY_HEX | xxd -r -ps >> keys/deploy.key
-          - openssl rsa -in keys/deploy.key -check -noout
-          - sfdx force:auth:jwt:grant --clientid $QA_CONSUMER_KEY --jwtkeyfile keys/server.key --username $QA_SFDC_USER -a deploy
+            echo 'make deploy key'
+            echo $DEPLOY_SERVER_KEY_HEX | xxd -r -ps >> keys/deploy.key
+            openssl rsa -in keys/deploy.key -check -noout
+            sfdx force:auth:jwt:grant --clientid $QA_CONSUMER_KEY --jwtkeyfile keys/server.key --username $QA_SFDC_USER -a deploy
       - run:
           name: Setup Org
           command: |
